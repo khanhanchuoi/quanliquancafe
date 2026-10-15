@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order – Góc Phố Coffee</title>
+  <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-base="../" data-page="orders">
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar">
+        <button type="button" class="menu-btn" id="menuBtn" aria-label="Mở menu">☰</button>
+        <h1>Order</h1>
+        <div class="userbox" id="userBox"></div>
+      </header>
+      <main class="content">
+        <div class="order-layout">
+          <section class="panel">
+            <div class="toolbar" style="margin-bottom:10px">
+              <input type="text" id="menuSearch" class="search" placeholder="Tìm món" aria-label="Tìm món">
+            </div>
+            <div class="chips" id="cats" role="group" aria-label="Nhóm món"></div>
+            <div class="menu-pick" id="menuPick"></div>
+          </section>
+
+          <div class="stack">
+            <section class="panel">
+              <div class="field">
+                <label for="tableSelect">Bàn</label>
+                <select id="tableSelect"></select>
+              </div>
+              <div id="cartList"></div>
+              <div class="field" style="margin-top:12px">
+                <label for="note">Ghi chú</label>
+                <textarea id="note" maxlength="120" placeholder="Ví dụ: ít đường, không đá"></textarea>
+              </div>
+              <div class="total-row"><span>Tổng cộng</span><span id="cartTotal">0 đ</span></div>
+              <p class="err" id="orderError" role="alert"></p>
+              <div class="field" style="margin-top:6px">
+                <label for="payMethod">Hình thức thanh toán</label>
+                <select id="payMethod"><option>Tiền mặt</option><option>Chuyển khoản</option><option>Thẻ</option></select>
+              </div>
+              <div class="cart-actions">
+                <button type="button" class="btn btn-primary" id="saveBtn">Lưu order</button>
+                <button type="button" class="btn btn-accent" id="payBtn">Thanh toán</button>
+                <button type="button" class="btn btn-danger full" id="cancelOrderBtn">Hủy order của bàn này</button>
+              </div>
+            </section>
+            <section class="panel">
+              <h2>Order đang mở</h2>
+              <div class="open-orders" id="openOrders"></div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../js/common.js"></script>
+  <script src="../js/orders.js"></script>
+</body>
+</html>

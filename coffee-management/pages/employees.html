@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nhân viên – Góc Phố Coffee</title>
+  <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-base="../" data-page="employees" data-roles="owner">
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar">
+        <button type="button" class="menu-btn" id="menuBtn" aria-label="Mở menu">☰</button>
+        <h1>Nhân viên</h1>
+        <div class="userbox" id="userBox"></div>
+      </header>
+      <main class="content">
+        <div class="toolbar">
+          <input type="text" id="search" class="search" placeholder="Tìm theo tên hoặc số điện thoại" aria-label="Tìm nhân viên">
+          <select id="roleFilter" aria-label="Lọc theo vị trí" style="width:auto">
+            <option value="">Tất cả vị trí</option>
+            <option>Quản lý</option><option>Thu ngân</option><option>Pha chế</option><option>Phục vụ</option>
+          </select>
+          <span class="grow"></span>
+          <button type="button" class="btn btn-primary" id="addBtn">Thêm nhân viên</button>
+        </div>
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th>Mã</th><th>Họ tên</th><th>Vị trí</th><th>Điện thoại</th><th>Ca làm</th><th>Trạng thái</th><th><span class="sr-only">Thao tác</span></th></tr></thead>
+            <tbody id="empBody"></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="empDialog">
+    <form id="empForm" novalidate>
+      <h2 id="empTitle">Thêm nhân viên</h2>
+      <div class="field">
+        <label for="name">Họ và tên</label>
+        <input type="text" id="name" name="name" autocomplete="off">
+        <span class="err" data-err="name"></span>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="role">Vị trí</label>
+          <select id="role" name="role"><option value="">Chọn vị trí</option><option>Quản lý</option><option>Thu ngân</option><option>Pha chế</option><option>Phục vụ</option></select>
+          <span class="err" data-err="role"></span>
+        </div>
+        <div class="field">
+          <label for="shift">Ca làm</label>
+          <select id="shift" name="shift"><option value="">Chọn ca</option><option>Sáng</option><option>Chiều</option><option>Tối</option></select>
+          <span class="err" data-err="shift"></span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="phone">Số điện thoại</label>
+          <input type="tel" id="phone" name="phone" inputmode="numeric" placeholder="0901234567">
+          <span class="err" data-err="phone"></span>
+        </div>
+        <div class="field">
+          <label for="status">Trạng thái</label>
+          <select id="status" name="status"><option>Đang làm</option><option>Nghỉ phép</option><option>Đã nghỉ việc</option></select>
+          <span class="err" data-err="status"></span>
+        </div>
+      </div>
+      <div class="dlg-actions">
+        <button type="button" class="btn" id="cancelBtn">Hủy</button>
+        <button type="submit" class="btn btn-primary">Lưu nhân viên</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/employees.js"></script>
+</body>
+</html>
