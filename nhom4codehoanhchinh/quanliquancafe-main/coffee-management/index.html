@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Góc Phố Coffee</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-base="" data-page="dashboard">
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar">
+        <dis class="topbar-left">
+        <button type="button" class="menu-btn" id="menuBtn" aria-label="Mở menu">☰</button>
+        <h1>Tổng quan</h1>
+        <div class="userbox" id="userBox"></div>
+      </header>
+      <main class="content">
+        <div class="page-head">
+          <p class="lead" id="today"></p>
+          <a class="btn btn-accent" href="pages/orders.html">Tạo order mới</a>
+        </div>
+
+        <dl class="ledger">
+          <dt>Doanh thu hôm nay</dt><dd id="stRevenue">0 đ</dd>
+          <dt>Order hôm nay</dt><dd id="stOrders">0</dd>
+          <dt>Bàn đang phục vụ</dt><dd id="stTables">0/0</dd>
+          <dt>Bán chạy hôm nay</dt><dd class="small" id="stTop">–</dd>
+        </dl>
+
+        <div class="dash-grid">
+          <div class="stack">
+            <section class="panel">
+              <h2>Tình trạng bàn</h2>
+              <div class="mini-tables" id="miniTables"></div>
+              <div class="legend"><span>Xanh: trống</span><span>Vàng: có khách</span><span>Xanh dương: đặt trước</span></div>
+            </section>
+            <section class="panel">
+              <h2>Order đang mở</h2>
+              <ul class="list" id="openOrders"></ul>
+            </section>
+          </div>
+          <section class="panel">
+            <h2>Hóa đơn gần đây</h2>
+            <ul class="list" id="recentInvoices"></ul>
+            <p style="margin-top:12px"><a href="pages/invoices.html">Xem tất cả hóa đơn</a></p>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="js/common.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

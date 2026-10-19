@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đăng nhập – Góc Phố Coffee</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-base="" data-page="login">
+  <div class="login">
+    <section class="login-side">
+      <div>
+        <img src="images/logo.svg" alt="Góc Phố Coffee">
+        <h1>Mở quán là có sổ sách gọn gàng.</h1>
+        <p>Nhận order, theo dõi bàn, in hóa đơn và xem doanh thu ngay trên một màn hình.</p>
+      </div>
+    </section>
+    <section class="login-form">
+      <form id="loginForm" novalidate>
+        <h2>Đăng nhập</h2>
+        <p class="muted" style="margin-bottom:20px">Dùng tài khoản được chủ quán cấp.</p>
+        <div class="field">
+          <label for="username">Tên đăng nhập</label>
+          <input type="text" id="username" name="username" autocomplete="username">
+          <span class="err" data-err="username"></span>
+        </div>
+        <div class="field">
+          <label for="password">Mật khẩu</label>
+          <input type="password" id="password" name="password" autocomplete="current-password">
+          <span class="err" data-err="password"></span>
+        </div>
+        <p class="err" id="loginError" role="alert"></p>
+        <button type="submit" class="btn btn-primary" style="width:100%">Đăng nhập</button>
+        <div class="demo-box">
+          <strong>Tài khoản demo</strong><br>
+          Chủ quán: <code>giakhanh</code> / <code>giakhanh123</code><br>
+          Nhân viên: <code>anhhieu</code> / <code>anhhieu123</code>
+        </div>
+      </form>
+    </section>
+  </div>
+  <script src="js/common.js"></script>
+  <script>
+    // 1. Nếu đã đăng nhập rồi thì chuyển thẳng về trang chủ
+  if (CF.currentUser()) {
+    location.replace('index.html');
+  }
+
+  // 2. Lấy các phần tử trên trang
+  var form = document.getElementById('loginForm');
+  var loginError = document.getElementById('loginError');
+
+  // 3. Khi bấm nút "Đăng nhập"
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();           // Không cho trang tải lại
+    loginError.textContent = '';  // Xóa thông báo lỗi cũ
+
+    // Lấy dữ liệu người dùng nhập
+    var username = form.elements.username.value.trim();
+    var password = form.elements.password.value;
+
+    // 4. Kiểm tra có bỏ trống ô nào không
+    var errors = {};
+    if (username === '') {
+      errors.username = 'Nhập tên đăng nhập.';
+    }
+    if (password === '') {
+      errors.password = 'Nhập mật khẩu.';
+    }
+
+    // Còn lỗi thì hiện lỗi và dừng lại
+    if (!CF.showErrors(form, errors)) {
+      return;
+    }
+
+    // 5. Kiểm tra tài khoản
+    if (CF.login(username, password)) {
+      location.href = 'index.html';   // Đúng thì vào trang chủ
+    } else {
+      loginError.textContent = 'Tên đăng nhập hoặc mật khẩu chưa đúng. Kiểm tra lại rồi thử tiếp.';
+    }
+  });
+  </script>
+</body>
+</html>

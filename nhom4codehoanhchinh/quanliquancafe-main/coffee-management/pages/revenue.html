@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doanh thu – Góc Phố Coffee</title>
+  <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-base="../" data-page="revenue" data-roles="owner">
+  <div class="app">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar">
+        <button type="button" class="menu-btn" id="menuBtn" aria-label="Mở menu">☰</button>
+        <h1>Doanh thu</h1>
+        <div class="userbox" id="userBox"></div>
+      </header>
+      <main class="content">
+        <div class="toolbar">
+          <div class="chips" id="range" role="group" aria-label="Khoảng thời gian">
+            <button type="button" class="chip" data-days="7" aria-pressed="true">7 ngày</button>
+            <button type="button" class="chip" data-days="14" aria-pressed="false">14 ngày</button>
+          </div>
+        </div>
+        <dl class="ledger">
+          <div><dt>Tổng doanh thu</dt><dd id="sumTotal">0 đ</dd></div>
+          <div><dt>Số hóa đơn</dt><dd id="sumCount">0</dd></div>
+          <div><dt>Trung bình mỗi hóa đơn</dt><dd id="sumAvg">0 đ</dd></div>
+          <div><dt>Ngày cao nhất</dt><dd class="small" id="sumBest">–</dd></div>
+        </dl>
+        <section class="panel">
+          <h2>Doanh thu theo ngày</h2>
+          <div id="chart"></div>
+        </section>
+        <div class="two-col">
+          <section class="panel">
+            <h2>Món bán chạy</h2>
+            <div class="table-wrap" style="border:0"><table class="data" style="min-width:0"><thead><tr><th>Món</th><th class="right">Số lượng</th><th class="right">Doanh thu</th></tr></thead><tbody id="topItems"></tbody></table></div>
+          </section>
+          <section class="panel">
+            <h2>Hình thức thanh toán</h2>
+            <div class="table-wrap" style="border:0"><table class="data" style="min-width:0"><thead><tr><th>Hình thức</th><th class="right">Hóa đơn</th><th class="right">Doanh thu</th></tr></thead><tbody id="methods"></tbody></table></div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../js/common.js"></script>
+  <script src="../js/revenue.js"></script>
+</body>
+</html>
