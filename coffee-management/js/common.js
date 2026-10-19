@@ -68,18 +68,18 @@
   function seedData() {
     var r = rng(2026);
     var employees = [
-      { id: 'NV01', name: 'Nguyễn Minh Anh', role: 'Quản lý', phone: '0912345678', shift: 'Sáng', status: 'Đang làm' },
-      { id: 'NV02', name: 'Trần Quốc Bảo', role: 'Pha chế', phone: '0987654321', shift: 'Sáng', status: 'Đang làm' },
-      { id: 'NV03', name: 'Lê Thu Hà', role: 'Thu ngân', phone: '0905123456', shift: 'Chiều', status: 'Đang làm' },
-      { id: 'NV04', name: 'Phạm Đức Long', role: 'Phục vụ', phone: '0933221144', shift: 'Chiều', status: 'Đang làm' },
-      { id: 'NV05', name: 'Vũ Khánh Linh', role: 'Phục vụ', phone: '0977112233', shift: 'Tối', status: 'Nghỉ phép' }
+      { id: 'NV01', name: 'Phạm Gia Khánh', role: 'Quản lý', phone: '0912345678', shift: 'Sáng', status: 'Đang làm' },
+      { id: 'NV02', name: 'Nguyễn Đình Huy', role: 'Pha chế', phone: '0987654321', shift: 'Sáng', status: 'Đang làm' },
+      { id: 'NV03', name: 'Nguyễn Anh Hiếu', role: 'Thu ngân', phone: '0905123456', shift: 'Chiều', status: 'Đang làm' },
+      { id: 'NV04', name: 'Trần Hà Linh', role: 'Phục vụ', phone: '0933221144', shift: 'Chiều', status: 'Đang làm' },
+      { id: 'NV05', name: 'Trần Văn Hiệu', role: 'Phục vụ', phone: '0977112233', shift: 'Tối', status: 'Nghỉ phép' }
     ];
     var menu = [
-      ['Cà phê đen', 'Cà phê', 25000], ['Cà phê sữa', 'Cà phê', 29000], ['Bạc xỉu', 'Cà phê', 32000],
+      ['Cà phê đen', 'Cà phê', 25000], ['Cà phê sữa', 'Cà phê', 30000], ['Bạc xỉu', 'Cà phê', 32000],
       ['Cà phê muối', 'Cà phê', 35000], ['Cold brew cam sả', 'Cà phê', 45000],
-      ['Trà đào cam sả', 'Trà', 42000], ['Trà vải', 'Trà', 39000], ['Trà sen vàng', 'Trà', 45000],
-      ['Sinh tố bơ', 'Sinh tố & nước ép', 49000], ['Nước ép cam', 'Sinh tố & nước ép', 40000], ['Sinh tố xoài', 'Sinh tố & nước ép', 45000],
-      ['Bánh tiramisu', 'Bánh ngọt', 45000], ['Bánh croissant', 'Bánh ngọt', 35000], ['Bánh flan', 'Bánh ngọt', 20000]
+      ['Trà đào cam sả', 'Trà', 40000], ['Trà vải', 'Trà', 40000], ['Trà sen vàng', 'Trà', 45000],
+      ['Sinh tố bơ', 'Sinh tố & nước ép', 45000], ['Nước ép cam', 'Sinh tố & nước ép', 40000], ['Sinh tố xoài', 'Sinh tố & nước ép', 45000],
+      ['Bánh tiramisu', 'Bánh ngọt', 50000], ['Bánh croissant', 'Bánh ngọt', 35000], ['Bánh flan', 'Bánh ngọt', 25000]
     ].map(function (m, i) {
       return { id: 'M' + pad(i + 1, 2), name: m[0], category: m[1], price: m[2], available: true };
     });
