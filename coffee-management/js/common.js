@@ -12,8 +12,8 @@
   var allowedRoles = (body.getAttribute('data-roles') || 'owner,staff').split(',');
 
   var ACCOUNTS = [
-    { username: 'admin', password: 'admin123', role: 'owner', name: 'Phạm Gia Khánh' },
-    { username: 'staff', password: 'staff123', role: 'staff', name: 'Nguyễn Anh Hiếu' }
+    { username: 'giakhanh', password: 'giakhanh123', role: 'owner', name: 'Phạm Gia Khánh' },
+    { username: 'anhhieu', password: 'anhhieu123', role: 'staff', name: 'Nguyễn Anh Hiếu' }
   ];
 
   var NAV = [
