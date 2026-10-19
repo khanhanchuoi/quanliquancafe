@@ -45,26 +45,45 @@
   </div>
   <script src="js/common.js"></script>
   <script>
-    (function () {
-      if (CF.currentUser()) { location.replace('index.html'); return; }
-      var form = document.getElementById('loginForm');
-      var errBox = document.getElementById('loginError');
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        errBox.textContent = '';
-        var u = form.elements.username.value.trim();
-        var p = form.elements.password.value;
-        var errors = {};
-        if (!u) errors.username = 'Nhập tên đăng nhập.';
-        if (!p) errors.password = 'Nhập mật khẩu.';
-        if (!CF.showErrors(form, errors)) return;
-        if (CF.login(u, p)) {
-          location.href = 'index.html';
-        } else {
-          errBox.textContent = 'Tên đăng nhập hoặc mật khẩu chưa đúng. Kiểm tra lại rồi thử tiếp.';
-        }
-      });
-    })();
+    // 1. Nếu đã đăng nhập rồi thì chuyển thẳng về trang chủ
+  if (CF.currentUser()) {
+    location.replace('index.html');
+  }
+
+  // 2. Lấy các phần tử trên trang
+  var form = document.getElementById('loginForm');
+  var loginError = document.getElementById('loginError');
+
+  // 3. Khi bấm nút "Đăng nhập"
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();           // Không cho trang tải lại
+    loginError.textContent = '';  // Xóa thông báo lỗi cũ
+
+    // Lấy dữ liệu người dùng nhập
+    var username = form.elements.username.value.trim();
+    var password = form.elements.password.value;
+
+    // 4. Kiểm tra có bỏ trống ô nào không
+    var errors = {};
+    if (username === '') {
+      errors.username = 'Nhập tên đăng nhập.';
+    }
+    if (password === '') {
+      errors.password = 'Nhập mật khẩu.';
+    }
+
+    // Còn lỗi thì hiện lỗi và dừng lại
+    if (!CF.showErrors(form, errors)) {
+      return;
+    }
+
+    // 5. Kiểm tra tài khoản
+    if (CF.login(username, password)) {
+      location.href = 'index.html';   // Đúng thì vào trang chủ
+    } else {
+      loginError.textContent = 'Tên đăng nhập hoặc mật khẩu chưa đúng. Kiểm tra lại rồi thử tiếp.';
+    }
+  });
   </script>
 </body>
 </html>
